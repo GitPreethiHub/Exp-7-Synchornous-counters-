@@ -46,43 +46,71 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
-
-
+     Compile and run the verilog program in the quartus software.
+     Realize the RTL logic for the same.
+     Create a new university program vwf and import nodes using node finder.
+     Run functional simulation to obtain the timing diagram.
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+     /*
+     Program for flipflops  and verify its truth table in quartus using Verilog programming.
+     Developed by: Preethi M
+     RegisterNumber:  22000091
+     */
 
+     Up counter:
+      module counters(input clk, reset, output[3:0] counter);
+     reg [3:0] counter_up;
+     always @(posedge clk or posedge reset)
+     begin
+     if(reset)
+     counter_up <= 4'd0;
+     else
+      counter_up <= counter_up + 4'd1;
+     end 
+     assign counter = counter_up;
+     endmodule
 
-
-
-
+     Down counter:
+     module de06(input clk,input reset,output[0:3]counter);
+     reg[0:3]counter_down;
+     always@(posedge clk or posedge reset)
+     begin
+     if (reset)
+     counter_down<=4'd0;
+     else 
+     counter_down<=counter_down-4'd1;
+     end
+     assign counter=counter_down;
+     endmodule
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+   Up counter
 
+   ![images](/images/UpcounterRtl.png)
 
+   Down counter:
 
-
-
-
-
-
+   ![images](/images/DowncounterRtl.png)
 
 ### TIMING DIGRAMS FOR COUNTER  
+    Up counter:
 
+   ![images](/images/UpcounterSim.png)
 
+   Down counter:
 
-
+   ![images](/images/DowncounterSim.png)
 
 ### TRUTH TABLE 
+ Up counter:
 
+   ![images](https://i.imgur.com/Ob7OGf0.png)
 
+   Down counter:
 
-
-
+   ![images](https://i.imgur.com/sJDfaAH.png)
 
 ### RESULTS 
+    
+     Thus,4 bit Up and Down counters are implemented successfully.
